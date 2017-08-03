@@ -39,7 +39,7 @@
         <![endif]-->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
-      <a class="navbar-brand navbar-right" href="http://sch131.ru" target="_blank" title="Открыть сайт в новой вкладке"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> sch131.ru</a>
+      <a class="navbar-brand navbar-right" href="/" target="_blank" title="Открыть сайт в новой вкладке"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> sch131.ru</a>
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
