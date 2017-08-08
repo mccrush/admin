@@ -35,7 +35,15 @@ if(!empty($_FILES['uploadfile']['tmp_name'])) {
 
 // Сохраняем размер файла в Мб
 //echo $_FILES['uploadfile']['size'];
-$fileSize = round(($_FILES['uploadfile']['size'] / 1024), 2);
+//$fileSize = round(($_FILES['uploadfile']['size'] / 1024), 2);
+$bytes = $_FILES['uploadfile']['size'];
+if ($bytes >= 1048576) {
+  $fileSize = round(($bytes / 1048576), 2)." MB";
+} elseif ($bytes >= 1024) {
+  $fileSize = round(($bytes / 1024), 0)." KB";
+} else {
+  $fileSize = $bytes." B";
+}
 
 // Путь к папке в которую будем сохранять сам файл:
 $uploaddir = '../../../down/'.$section.'/'.$page.'/';
