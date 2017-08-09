@@ -58,6 +58,18 @@ require_once 'blocks/header.php'; ?>
             <div class="col-xs-4">
                 <div class="panel panel-default">
                   <div class="panel-body">
+                    <h4 class="text-center"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Вакантные места</h4>
+                    <hr>
+                    <a role="button" href="vacant/vacant_v_add.php" class="btn btn-success btn-block">Добавить класс</a>
+                    <hr>
+                    <a role="button" href="vacant/vacant_v_list.php" class="btn btn-primary btn-block">Список классов</a>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-xs-4">
+                <div class="panel panel-default">
+                  <div class="panel-body">
                     <h4 class="text-center"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Температур. режим</h4>
                     <hr>
                     <a role="button" href="mtr/mtr.php" class="btn btn-success btn-block">Добавить файл</a>
@@ -66,7 +78,7 @@ require_once 'blocks/header.php'; ?>
                   </div>
                 </div>
             </div>
-            
+
             <div class="col-xs-4">
                 <div class="panel panel-default">
                   <div class="panel-body">
