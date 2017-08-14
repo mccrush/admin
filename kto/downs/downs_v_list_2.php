@@ -31,47 +31,6 @@ if (!isset($_GET['section'])) {
 		} 
 	}
 }
-/*if (!isset($_GET['section'])) {
-  // Если нет значения раздела, то все по умолчанию
-  $section = 'm3';
-  $st = 'Документы';
-  $page = 'ustav';
-  $pt = 'Устав';
-} else {
-  $section = $_GET['section'];
-  $st = $_GET['st'];
-
-  // Если есть значение раздела, то проверяем наличие значения страинцы
-  if (!isset($_GET['page'])) {
-    $page = 'ustav';
-    $pt = 'Устав';
-	} else {
-	  $page = $_GET['page'];
-	  $pt = $_GET['pt'];
-
-	  // Если есть страница, то проверяем ее значение для документов образования!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	  if ($page == 'obraz_standart') {
-      // Проверяем существование  переменных уровня и блока
-      if (!isset($_GET['uroven'])) {
-        $uroven = 'ООП';
-        $block = 'НОО (ФГОС)';
-			} else {
-		    $uroven = $_GET['uroven'];
-		  
-      // Если существует уровень, то проверям существование блока
-		    if (!isset($_GET['uroven'])) {
-		  	  $block = 'НОО (ФГОС)';
-		    } else {
-		  	  $block = $_GET['block'];
-		    }
-		  }
-		} else {
-      // Если страница не для документов образования, удаляем переменные уровень и блок
-			unset($uroven, $block);
-		}
-  }
-}*/
-
 
 
 // Проверка условий сортировки
@@ -207,40 +166,6 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
 </div><!-- Конец строки выбора раздела и кнопки -->
 
 
-
-
-<!-- 
-
-<div class="row">
-	<div class="col-md-10"> 
-		  <div class="btn-group btn-group-sm" role="group" aria-label="...">
-				<a href="?section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>&order=position&sort=DESC" class="btn btn-default btn-sm" title="Позиция убывает">
-					<span class="glyphicon glyphicon-sort-by-order-alt" aria-hidden="true"></span>
-				</a>&nbsp;
-				<a href="?section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>&order=position&sort=ASC" class="btn btn-default btn-sm" title="Позиция возрастает">
-					<span class="glyphicon glyphicon-sort-by-order" aria-hidden="true"></span>
-				</a>
-				<a href="?section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>&order=date_create&sort=DESC" class="btn btn-default btn-sm" title="Дата убывает">
-					<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;
-					<span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
-				</a>
-				<a href="?section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>&order=date_create&sort=ASC" class="btn btn-default btn-sm" title="Дата возрастает">
-					<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;
-					<span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
-				</a>
-				<a href="?section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>&order=description&sort=DESC" class="btn btn-default btn-sm" title="Алфавит убывает">
-					<span class="glyphicon glyphicon-font" aria-hidden="true"></span>&nbsp;
-					<span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span></a>&nbsp;
-				<a href="?section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>&order=description&sort=ASC" class="btn btn-default btn-sm" title="Алфавит возрастает">
-					<span class="glyphicon glyphicon-font" aria-hidden="true"></span>&nbsp;
-					<span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
-				</a>
-		  </div>
-  </div>
-  <div class="col-md-2">
-    <a role="button" href="downs_v_add.php?section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>" class="btn btn-success btn-block btn-sm" name="adddoc">Добавить документ</a>
-  </div>
-</div> -->
 
 
 
