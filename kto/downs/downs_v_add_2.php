@@ -29,6 +29,7 @@ if (!isset($_GET['section'])) {
       unset($uroven);
     } else {  
       $uroven = $_GET['uroven'];
+      
       if (!isset($_GET['block'])) {
         unset($block);
       } else {
@@ -104,7 +105,7 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
 
   ?>
 
-<form enctype="multipart/form-data" method="post" action="downs_m_save.php">
+<form enctype="multipart/form-data" method="post" action="downs_m_save_2.php">
   <div class="row">
 
       <div class="col-md-3">  
@@ -173,8 +174,6 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
   <input type="hidden" name="page" value="<?=$page?>">
   <input type="hidden" name="st" value="<?=$st?>">
   <input type="hidden" name="pt" value="<?=$pt?>">
-<!--   <input type="hidden" name="uroven" value="<?=$uroven?>">
-<input type="hidden" name="block" value="<?=$block?>"> -->
 
   <div class="row">
     <div class="col-md-8">
