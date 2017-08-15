@@ -138,7 +138,7 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">                          
-					<? showLists($dbcnx, 'page', $section, $st, $page, $pt, ''); ?>
+					<? showLists($dbcnx, 'uroven', $section, $st, $page, $pt, ''); ?>
         </ul>
       </div>       
     </div>
@@ -152,7 +152,7 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu4"> 
-	        <? showLists($dbcnx, 'page', $section, $st, $page, $pt, $uroven); ?>
+	        <? showLists($dbcnx, 'block', $section, $st, $page, $pt, $uroven); ?>
         </ul>
       </div>       
     </div>
