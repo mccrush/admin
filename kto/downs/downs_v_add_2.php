@@ -25,11 +25,15 @@ if (!isset($_GET['section'])) {
     $page = $_GET['page'];
     $pt = $_GET['pt'];
 
-    if (isset($_GET['uroven']) and $_GET['uroven'] != '') {
+    if ($_GET['uroven'] == '') {
+      unset($uroven);
+    } else {  
       $uroven = $_GET['uroven'];
-      if (isset($_GET['block'])) {
-        $block = $_GET['block'];
-      } 
+      if (!isset($_GET['block'])) {
+        unset($block);
+      } else {
+      	$block = $_GET['block'];
+      }
     } 
   }
 }
@@ -106,7 +110,7 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
       <div class="col-md-3">  
         <div class="form-group">
           <div class="dropdown">
-            <label for="dropdownMenu1">Уточните раздел</label><br>
+            <label for="dropdownMenu1">Укажите раздел</label><br>
             <button class="btn btn-default dropdown-toggle btn-block" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><?=mb_substr($st, 0, 24, 'UTF-8')?>
               <span class="caret"></span>
             </button>
@@ -120,7 +124,7 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
       <div class="col-md-3">  
         <div class="form-group">
           <div class="dropdown">
-            <label for="dropdownMenu2">Уточните страницу</label><br>
+            <label for="dropdownMenu2">Укажите страницу</label><br>
             <button class="btn btn-default dropdown-toggle btn-block" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><?=mb_substr($pt, 0, 24, 'UTF-8')?>
             <span class="caret"></span>
             </button>
@@ -132,17 +136,17 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
       </div>
 
     <!-- Строка выбора уровня и блока -->
-    <? if (!isset($uroven)) {echo "<!--";} ?>
       <div class="col-md-3">
         <div class="form-group">
           <div class="dropdown">
-            <label for="dropdownMenu3">Уточните уровень</label><br>
+            <label for="dropdownMenu3">Укажите уровень</label><br>
             <button class="btn btn-default dropdown-toggle btn-block" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><?=mb_substr($uroven, 0, 12, 'UTF-8')?>
             <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">                          
-              <? showLists($dbcnx, 'page', $section, $st, $page, $pt, ''); ?>
+              <? if (isset($uroven)) {showLists($dbcnx, 'uroven', $section, $st, $page, $pt, '');} ?>
             </ul>
+            <input type="text" class="form-control input-sm" name="uroven" placeholder="Или введите новый" value="<?=$uroven?>">
           </div>       
         </div>
       </div>
@@ -150,17 +154,17 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
       <div class="col-md-3">  
         <div class="form-group">
          <div class="dropdown">
-          <label for="dropdownMenu4">Уточните блок</label><br>
+          <label for="dropdownMenu4">Укажите блок</label><br>
           <button class="btn btn-default dropdown-toggle btn-block" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><?=mb_substr($block, 0, 12, 'UTF-8')?>
           <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu4"> 
-            <? showLists($dbcnx, 'page', $section, $st, $page, $pt, $uroven); ?>
+            <? if (isset($block)) {showLists($dbcnx, 'block', $section, $st, $page, $pt, $uroven);} ?>
           </ul>
+          <input type="text" class="form-control input-sm" name="block" placeholder="Или введите новый" value="<?=$block?>">
         </div>       
       </div>
     </div>
-  <? if (!isset($uroven)) {echo "-->"; echo '<div class="col-md-3"></div><div class="col-md-3"></div>';} ?>
   <!-- Конец строки выбора уровня и блока -->
 
   </div>
@@ -169,8 +173,8 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
   <input type="hidden" name="page" value="<?=$page?>">
   <input type="hidden" name="st" value="<?=$st?>">
   <input type="hidden" name="pt" value="<?=$pt?>">
-  <input type="hidden" name="uroven" value="<?=$uroven?>">
-  <input type="hidden" name="block" value="<?=$block?>">
+<!--   <input type="hidden" name="uroven" value="<?=$uroven?>">
+<input type="hidden" name="block" value="<?=$block?>"> -->
 
   <div class="row">
     <div class="col-md-8">
