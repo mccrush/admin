@@ -145,7 +145,8 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
             <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">                          
-              <? if (isset($uroven)) {showLists($dbcnx, 'uroven', $section, $st, $page, $pt, '');} ?>
+              <? //if (isset($uroven)) {showLists($dbcnx, 'uroven', $section, $st, $page, $pt, '');} ?>
+              <? showLists($dbcnx, 'uroven', $section, $st, $page, $pt, '') ?>
             </ul>
             <input type="text" class="form-control input-sm" name="uroven" placeholder="Или введите новый" value="<?=$uroven?>">
           </div>       
@@ -160,7 +161,7 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
           <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu4"> 
-            <? if (isset($block)) {showLists($dbcnx, 'block', $section, $st, $page, $pt, $uroven);} ?>
+            <? if (isset($uroven)) {showLists($dbcnx, 'block', $section, $st, $page, $pt, $uroven);} ?>
           </ul>
           <input type="text" class="form-control input-sm" name="block" placeholder="Или введите новый" value="<?=$block?>">
         </div>       
