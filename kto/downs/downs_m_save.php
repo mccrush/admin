@@ -7,6 +7,8 @@ $section = trim($_POST['section']);
 $page = trim($_POST['page']);
 $st = trim($_POST['st']);
 $pt = trim($_POST['pt']);
+$uroven = trim($_POST['uroven']);
+$block = trim($_POST['block']);
 
 // Массив допустимых расширений
 $arrayExtensions = array('.doc', '.docx', '.xls', '.xlsx', '.pdf', '.rtf', '.rar', '.zip', '.jpg', '.jpeg', '.png', '.gif', '.ppt', '.pptx', '.odt', '.ods', '.odp');
@@ -16,12 +18,12 @@ if(!empty($_FILES['uploadfile']['tmp_name'])) {
     if(in_array(strrchr($_FILES['uploadfile']['name'], "."), $arrayExtensions)) {
         if($_FILES['uploadfile']['size'] > 30000000) {
             echo '<p>Размер загружаемого файла превышает <strong>30 Мб</strong><br>Разбейте файл на меньшие по объему и загрузите по отдельности<p>';
-            echo '<p><a href="downs_v_add.php?section='.$section.'&st='.$st.'&page='.$page.'&pt='.$pt.'" title="Вернуться на страницу загрузки" target="_self">Вернуться на страницу загрузки</a></p>';
+            echo '<p><a href="downs_v_add.php?section='.$section.'&st='.$st.'&page='.$page.'&pt='.$pt.'&uroven='.$uroven.'&block='.$block.'" title="Вернуться на страницу загрузки" target="_self">Вернуться на страницу загрузки</a></p>';
             exit;
         }
     } else {
         echo '<p>Тип загружаемого файла не соответствует <strong>допустимому расширению</strong>:<br>doc, docx, xls, xlsx, pdf, rtf, rar, zip, jpg, jpeg, png, gif, ppt, pptx, odt, ods, odp</p><p>А вы пытаетесь загрузить тип: <strong>'.strrchr($_FILES['uploadfile']['name'], ".").'</strong></p>';
-        echo '<p><a href="downs_v_add.php?section='.$section.'&st='.$st.'&page='.$page.'&pt='.$pt.'" title="Вернуться на страницу загрузки" target="_self">Вернуться на страницу загрузки</a></p>';
+        echo '<p><a href="downs_v_add.php?section='.$section.'&st='.$st.'&page='.$page.'&pt='.$pt.'&uroven='.$uroven.'&block='.$block.'" title="Вернуться на страницу загрузки" target="_self">Вернуться на страницу загрузки</a></p>';
         exit;
     }
 } else {
@@ -29,7 +31,7 @@ if(!empty($_FILES['uploadfile']['tmp_name'])) {
     Вы забыли указать путь к файлу;<br>Пытаетесь загрузить недопустимый тип файла;<br>
     Размер загружаемого файла > 30 Мб.<br>
     <strong>Вернитесь и проверьте!</strong></p>';
-    echo '<p><a href="downs_v_add.php?section='.$section.'&st='.$st.'&page='.$page.'&pt='.$pt.'" title="Вернуться на страницу загрузки" target="_self">Вернуться на страницу загрузки</a></p>';
+    echo '<p><a href="downs_v_add.php?section='.$section.'&st='.$st.'&page='.$page.'&pt='.$pt.'&uroven='.$uroven.'&block='.$block.'" title="Вернуться на страницу загрузки" target="_self">Вернуться на страницу загрузки</a></p>';
     exit;
 }
 
@@ -102,7 +104,7 @@ if (copy($_FILES['uploadfile']['tmp_name'], $uploaddir.$file_name.$ext)) {
 
 
 
-    $query = sprintf("INSERT INTO `mc_downs` (`description`, `ext`, `file_name`, `section`, `page`, `position`, `date_create`, `file_size`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", $description, $ext, $file_name, $section, $page, 1,  date("Y-m-d"), $fileSize);
+    $query = sprintf("INSERT INTO `mc_downs` (`description`, `ext`, `file_name`, `section`, `page`, `position`, `date_create`, `file_size`, `uroven`, `block`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", $description, $ext, $file_name, $section, $page, 1,  date("Y-m-d"), $fileSize, $uroven, $block);
 
     //echo $query;
 
@@ -113,7 +115,7 @@ if (copy($_FILES['uploadfile']['tmp_name'], $uploaddir.$file_name.$ext)) {
     if($result) {
         //echo "Данные успешно добавлены<br>";
         mysqli_close($dbcnx);
-        header('Location: downs_v_list.php?section='.$section.'&st='.$st.'&page='.$page.'&pt='.$pt);
+        header('Location: downs_v_list.php?section='.$section.'&st='.$st.'&page='.$page.'&pt='.$pt.'&uroven='.$uroven.'&block='.$block);
     } else {
         echo "<br>Данные НЕ отправлены. Ищи ошибку<br>";
     }
