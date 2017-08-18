@@ -62,10 +62,10 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
     $query = "SELECT `title`, `alias` FROM `mc_pages` WHERE section = '$section'";
     break;
     case "uroven":
-    $query = "SELECT `uroven` FROM `mc_downs` WHERE page = '$page'";
+    $query = "SELECT DISTINCT `uroven` FROM `mc_downs` WHERE page = '$page'";
     break;
     case "block":
-    $query = "SELECT `block` FROM `mc_downs` WHERE uroven = '$uroven'";
+    $query = "SELECT DISTINCT `block` FROM `mc_downs` WHERE uroven = '$uroven'";
     break;    
   }
 //echo $element;
@@ -180,7 +180,7 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
     <div class="col-md-8">
       <div class="form-group">
         <label for="description">Описание документа (<span class="text-danger">обязательное поле</span>)</label>
-        <textarea class="form-control" rows="3" name="description" placeholder="Добавьте описание (название) документа"></textarea>
+        <textarea class="form-control" rows="3" name="description" placeholder="Добавьте описание (название) документа" autofocus></textarea>
       </div>
     </div>
 

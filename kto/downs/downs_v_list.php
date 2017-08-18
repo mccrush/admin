@@ -59,10 +59,10 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
         $query = "SELECT `title`, `alias` FROM `mc_pages` WHERE section = '$section'";
         break;
     case "uroven":
-        $query = "SELECT `uroven` FROM `mc_downs` WHERE page = '$page'";
+        $query = "SELECT DISTINCT `uroven` FROM `mc_downs` WHERE page = '$page'";
         break;
     case "block":
-        $query = "SELECT `block` FROM `mc_downs` WHERE uroven = '$uroven'";
+        $query = "SELECT DISTINCT `block` FROM `mc_downs` WHERE uroven = '$uroven'";
         break;    
 	}
 //echo $element;
@@ -166,7 +166,7 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
 	<!-- Конец строки выбора уровня и блока -->
 	<div class="col-md-2">
     <label for="adddoc">Или можете</label><br>
-    <a role="button" href="downs_v_add.php?section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>" class="btn btn-success btn-block" name="adddoc" title="Добавить документ">Добавить док-нт</a>
+    <a role="button" href="downs_v_add.php?section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>&uroven=<?=$uroven?>&block=<?=$block?>" class="btn btn-success btn-block" name="adddoc" title="Добавить документ">Добавить док-нт</a>
   </div>
 </div><!-- Конец строки выбора раздела и кнопки -->
 
