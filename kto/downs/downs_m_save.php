@@ -11,7 +11,7 @@ $uroven = trim($_POST['uroven']);
 $block = trim($_POST['block']);
 
 // Массив допустимых расширений
-$arrayExtensions = array('.doc', '.docx', '.xls', '.xlsx', '.pdf', '.rtf', '.rar', '.zip', '.jpg', '.jpeg', '.png', '.gif', '.ppt', '.pptx', '.odt', '.ods', '.odp');
+$arrayExtensions = array('.doc', '.docx', '.xls', '.xlsx', '.pdf', '.rtf', '.rar', '.zip', '.7z', '.jpg', '.jpeg', '.png', '.gif', '.ppt', '.pptx', '.odt', '.ods', '.odp');
 
 // Проверяем на пустоту, максимальный размер и расширение
 if(!empty($_FILES['uploadfile']['tmp_name'])) {
