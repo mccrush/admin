@@ -8,6 +8,8 @@ if (!isset($_GET['id'])) {
   $st = $_GET['st'];
   $page = $_GET['page'];
   $pt = $_GET['pt'];
+  $uroven = $_GET['uroven'];
+  $block = $_GET['block'];
 }
 
 // Соединяемся с БД
@@ -31,7 +33,7 @@ $result = mysqli_query($dbcnx, $query);
 if($result) {
 	//echo "Данные успешно удалены<br>";
 	mysqli_close($dbcnx);
-	header('Location: downs_v_list.php?section='.$section.'&st='.$st.'&page='.$page.'&pt='.$pt);
+	header('Location: downs_v_list.php?section='.$section.'&st='.$st.'&page='.$page.'&pt='.$pt.'&uroven='.$uroven.'&block='.$block);
 } else {
 	echo "<br>Данные НЕ удалены. Ищи ошибку<br>";
 }
