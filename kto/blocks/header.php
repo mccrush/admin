@@ -22,6 +22,9 @@
         <script src="//cloud.tinymce.com/stable/tinymce.min.js?apiKey=hanxollva4phpflvvnv1lje4y82fvprrkqrmpqeclw066js2"></script>
         <!--<script type="text/javascript" src="../tinymce/tinymce.min.js"></script>-->
         <script type="text/javascript">
+        $(function () {
+          $('[data-toggle="popover"]').popover()
+        });
         tinymce.init({
             selector: "textarea.editme",
              menubar : true,
