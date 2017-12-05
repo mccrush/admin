@@ -1,5 +1,5 @@
-<? session_start();
-unset($_SESSION['auth']); 
+<? /*session_start();
+unset($_SESSION['auth']); */
 include 'zamok.php';
 $title = 'Панель администратора';
 ?>
