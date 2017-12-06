@@ -16,13 +16,15 @@ if (!isset($_GET['id'])) {
   $st = $_GET['st'];
   $page = $_GET['page'];
   $pt = $_GET['pt'];
+  $uroven = $_GET['uroven'];
+  $block = $_GET['block'];
 }
 
 // Соединяемся с БД
 require_once '../../../config/db_connect.php';
 
 // Запрос
-		$query = "SELECT `description` FROM `mc_downs` WHERE id = {$id}";
+		$query = "SELECT * FROM `mc_downs` WHERE id = {$id}";
 		//echo "<p></p>".$query;
 		$result = mysqli_query($dbcnx, $query);
 		
@@ -34,6 +36,21 @@ require_once '../../../config/db_connect.php';
 ?>
 
 			  <form enctype="multipart/form-data" method="post" action="downs_m_update.php">
+
+					  <div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="uroven">Измените уровень</label>
+									<input type="text" class="form-control" name="uroven" value="<?=$uroven?>">
+							  </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="block">Измените блок</label>
+									<input type="text" class="form-control" name="block" value="<?=$block?>">
+							  </div>
+							</div>
+						</div>		
 
 					  <div class="form-group">
 							<label for="description">Измените описание</label>
@@ -48,7 +65,7 @@ require_once '../../../config/db_connect.php';
 					  
 					  <div class="row">
 							<div class="col-md-6" style="text-align: center;">
-								<a type="button" class="btn btn-default btn-block otmena" href="downs_v_list.php?section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>">Отмена</a>
+								<a type="button" class="btn btn-default btn-block otmena" href="downs_v_list.php?section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>&uroven=<?=$uroven?>&block=<?=$block?>">Отмена</a>
 							</div>
 							
 							<div class="col-md-6">

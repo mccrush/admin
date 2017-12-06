@@ -215,7 +215,8 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
 	<? foreach ($articles as $a): ?>
   <tr>
     <td align="center"><?=$a['id']?></td>
-    <td align="center"><?=substr($a['date_create'], 8, 2).".".substr($a['date_create'], 5, 2).".".substr($a['date_create'],2,2);?></td>
+    <td align="center"><?=substr($a['date_create'], 8, 2).".".substr($a['date_create'], 5, 2).".".substr($a['date_create'],2,2);?><br>
+    <span style="color: #B5B5B5"><?=substr($a['date_edit'], 8, 2).".".substr($a['date_edit'], 5, 2).".".substr($a['date_edit'],2,2);?></span></td>
     <td><?=$a['description']?></td>
     <td align="center"><?=$a['ext']?></td>
     <td align="center"><?=$a['file_size']?></td>
@@ -223,7 +224,7 @@ function showLists($dbcnx, $param, $section, $st, $page, $pt, $uroven) {
       <?=$a['position']?>&nbsp;&nbsp;<div class="btn-group btn-group-xs" role="group"><a href="downs_m_pos.php?id=<?=$a['id']?>&ch=-1&section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>" type="button" title="Поднять" class="btn btn-default btn-xs down-up"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a><a href="downs_m_pos.php?id=<?=$a['id']?>&ch=1&section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>" type="button" title="Опустить" class="btn btn-default btn-xs down-up"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a></div>
     </td>
     <td align="center">
-      <a href="downs_v_edit.php?id=<?=$a['id']?>&section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>" type="button" title="Редактировать документ" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;<a href="downs_m_delete.php?id=<?=$a['id']?>&section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>&uroven=<?=$uroven?>&block=<?=$block?>" type="button" title="Удалить документ" class="btn btn-primary btn-xs down-delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+      <a href="downs_v_edit.php?id=<?=$a['id']?>&section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>&uroven=<?=$uroven?>&block=<?=$block?>" type="button" title="Редактировать документ" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;<a href="downs_m_delete.php?id=<?=$a['id']?>&section=<?=$section?>&st=<?=$st?>&page=<?=$page?>&pt=<?=$pt?>&uroven=<?=$uroven?>&block=<?=$block?>" type="button" title="Удалить документ" class="btn btn-primary btn-xs down-delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
     </td>
   </tr>
 	<? endforeach ?>
